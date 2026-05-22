@@ -3,56 +3,305 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Loan Eligibility Checker</title>
+    <title>FinAI - AI Loan Eligibility Checker</title>
+
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
+
 <body>
 
-<header>
+    <!-- Navbar -->
+
     <nav class="navbar">
-        <h2>FinAI</h2>
+
+        <div class="logo">FinAI</div>
+
         <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="eligibility.html">Eligibility</a></li>
-            <li><a href="credit-score.html">Credit Score</a></li>
-            <li><a href="emi-calculator.html">EMI Calculator</a></li>
-            <li><a href="tips.html">Tips</a></li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#eligibility">Eligibility</a></li>
+            <li><a href="#credit">Credit Score</a></li>
+            <li><a href="#emi">EMI</a></li>
+            <li><a href="#tips">Tips</a></li>
         </ul>
+
     </nav>
-</header>
 
-<section class="hero">
-    <div class="hero-content">
-        <h1>AI Loan Eligibility Checker</h1>
-        <p>Smart BFSI solution powered with AI-inspired financial analysis.</p>
-        <a href="eligibility.html" class="btn">Check Eligibility</a>
-    </div>
-</section>
+    <!-- Hero Section -->
 
-<section class="features">
-    <div class="card">
-        <i class="fa-solid fa-money-check-dollar"></i>
-        <h3>Loan Prediction</h3>
-        <p>Check your eligibility instantly.</p>
-    </div>
+    <section id="home" class="hero">
 
-    <div class="card">
-        <i class="fa-solid fa-chart-line"></i>
-        <h3>Credit Analysis</h3>
-        <p>Analyze financial health with smart scoring.</p>
-    </div>
+        <div class="hero-content">
 
-    <div class="card">
-        <i class="fa-solid fa-calculator"></i>
-        <h3>EMI Calculator</h3>
-        <p>Estimate your monthly payments quickly.</p>
-    </div>
-</section>
+            <h1>AI Loan Eligibility Checker</h1>
 
-<footer>
-    <p>© 2026 FinAI | AI in BFSI</p>
-</footer>
+            <p>
+                Smart BFSI platform powered with AI-inspired
+                financial analysis, loan prediction,
+                EMI calculation, and credit intelligence.
+            </p>
+
+            <a href="#eligibility" class="btn">
+                Get Started
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- Features -->
+
+    <section class="section">
+
+        <h2 class="section-title">
+            Smart Financial Features
+        </h2>
+
+        <div class="card-container">
+
+            <div class="card">
+
+                <i class="fa-solid fa-money-check-dollar"></i>
+
+                <h3>Loan Eligibility</h3>
+
+                <p>
+                    Instantly check whether you are eligible
+                    for loans using AI-powered financial logic.
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <i class="fa-solid fa-chart-line"></i>
+
+                <h3>Credit Score Analysis</h3>
+
+                <p>
+                    Analyze your financial health and
+                    understand your credit profile.
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <i class="fa-solid fa-calculator"></i>
+
+                <h3>EMI Calculator</h3>
+
+                <p>
+                    Calculate monthly EMIs quickly with
+                    intelligent financial estimation.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Eligibility Section -->
+
+    <section id="eligibility" class="section">
+
+        <h2 class="section-title">
+            Loan Eligibility Checker
+        </h2>
+
+        <div class="form-box">
+
+            <input type="text"
+            id="name"
+            placeholder="Enter Your Name">
+
+            <input type="number"
+            id="salary"
+            placeholder="Monthly Salary">
+
+            <input type="number"
+            id="score"
+            placeholder="Credit Score">
+
+            <input type="number"
+            id="emiInput"
+            placeholder="Existing EMI">
+
+            <input type="number"
+            id="age"
+            placeholder="Age">
+
+            <button onclick="checkEligibility()">
+                Check Eligibility
+            </button>
+
+            <div id="result" class="result-box"></div>
+
+        </div>
+
+    </section>
+
+    <!-- Credit Score Section -->
+
+    <section id="credit" class="section">
+
+        <h2 class="section-title">
+            Credit Score Analyzer
+        </h2>
+
+        <div class="form-box">
+
+            <input type="number"
+            id="creditInput"
+            placeholder="Enter Credit Score">
+
+            <button onclick="analyzeCredit()">
+                Analyze Credit Score
+            </button>
+
+            <div id="creditResult" class="result-box"></div>
+
+        </div>
+
+    </section>
+
+    <!-- EMI Calculator -->
+
+    <section id="emi" class="section">
+
+        <h2 class="section-title">
+            EMI Calculator
+        </h2>
+
+        <div class="form-box">
+
+            <input type="number"
+            id="loan"
+            placeholder="Loan Amount">
+
+            <input type="number"
+            id="rate"
+            placeholder="Interest Rate (%)">
+
+            <input type="number"
+            id="time"
+            placeholder="Loan Tenure (Months)">
+
+            <button onclick="calculateEMI()">
+                Calculate EMI
+            </button>
+
+            <div id="emiResult" class="result-box"></div>
+
+        </div>
+
+    </section>
+
+    <!-- Financial Tips -->
+
+    <section id="tips" class="section">
+
+        <h2 class="section-title">
+            AI Financial Tips
+        </h2>
+
+        <div class="card-container">
+
+            <div class="card">
+
+                <i class="fa-solid fa-piggy-bank"></i>
+
+                <h3>Smart Savings</h3>
+
+                <p>
+                    Save at least 20% of your monthly
+                    income for long-term stability.
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <i class="fa-solid fa-credit-card"></i>
+
+                <h3>Improve Credit Score</h3>
+
+                <p>
+                    Pay bills on time and reduce
+                    unnecessary credit utilization.
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <i class="fa-solid fa-wallet"></i>
+
+                <h3>Budget Management</h3>
+
+                <p>
+                    Track expenses and create a
+                    balanced monthly budget plan.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Statistics -->
+
+    <section class="section">
+
+        <h2 class="section-title">
+            Financial Insights
+        </h2>
+
+        <div class="stats">
+
+            <div class="stat-card">
+                <h2>95%</h2>
+                <p>Approval Accuracy</p>
+            </div>
+
+            <div class="stat-card">
+                <h2>50K+</h2>
+                <p>Users Analyzed</p>
+            </div>
+
+            <div class="stat-card">
+                <h2>₹10Cr+</h2>
+                <p>Loans Processed</p>
+            </div>
+
+            <div class="stat-card">
+                <h2>24/7</h2>
+                <p>AI Assistance</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>
+            © 2026 FinAI | AI Powered BFSI Platform
+        </p>
+
+    </footer>
+
+    <!-- JavaScript -->
+
+    <script src="script.js"></script>
 
 </body>
 </html>
