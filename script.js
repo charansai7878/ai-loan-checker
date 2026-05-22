@@ -1,5 +1,6 @@
 function checkEligibility() {
 
+    let name = document.getElementById("name").value;
     let salary = document.getElementById("salary").value;
     let score = document.getElementById("score").value;
     let emi = document.getElementById("emi").value;
@@ -7,54 +8,50 @@ function checkEligibility() {
 
     let result = document.getElementById("result");
 
+    let resultText = "";
+
     if (salary > 30000 && score > 700 && emi < 20000 && age >= 21) {
 
         let eligibleLoan = salary * 20;
 
+        resultText = "Approved";
+
         result.innerHTML = `
         <h3>Loan Approved ✅</h3>
+        <p>Name: ${name}</p>
         <p>Risk Level: Low</p>
         <p>Eligible Loan Amount: ₹${eligibleLoan}</p>
         `;
 
     } else {
 
+        resultText = "Rejected";
+
         result.innerHTML = `
         <h3>Loan Rejected ❌</h3>
+        <p>Name: ${name}</p>
         <p>Risk Level: High</p>
         `;
     }
-}
 
-// Credit Score Analyzer
-function analyzeCredit() {
+    // Send Data to Google Sheets
 
-    let score = document.getElementById("creditInput").value;
-    let result = document.getElementById("creditResult");
+    fetch("https://script.google.com/macros/s/AKfycbzznLZMbfU0517KPPXpafXGn0T2-DuknDCe-G29UGC3AZU7LYXU7lP6ppU_iMuHX4hM/exec", {
 
-    if(score >= 750){
-        result.innerHTML = "Excellent Credit Score ✅";
-    }
-    else if(score >= 650){
-        result.innerHTML = "Good Credit Score ⚡";
-    }
-    else{
-        result.innerHTML = "Poor Credit Score ❌";
-    }
-}
+        method: "POST",
 
-// EMI Calculator
-function calculateEMI() {
+        body: JSON.stringify({
+            name: name,
+            salary: salary,
+            score: score,
+            emi: emi,
+            result: resultText
+        })
 
-    let P = document.getElementById("loan").value;
-    let annualRate = document.getElementById("rate").value;
-    let N = document.getElementById("time").value;
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log("Data Saved");
+    });
 
-    let R = annualRate / 12 / 100;
-
-    let EMI = (P * R * Math.pow(1 + R, N)) /
-              (Math.pow(1 + R, N) - 1);
-
-    document.getElementById("emiResult").innerHTML =
-        `Monthly EMI: ₹${EMI.toFixed(2)}`;
 }
