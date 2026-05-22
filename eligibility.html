@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Eligibility</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <h2>FinAI</h2>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="eligibility.html">Eligibility</a></li>
+        <li><a href="credit-score.html">Credit Score</a></li>
+        <li><a href="emi-calculator.html">EMI Calculator</a></li>
+        <li><a href="tips.html">Tips</a></li>
+    </ul>
+</nav>
+
+<section class="form-section">
+    <div class="glass-card">
+        <h2>Check Loan Eligibility</h2>
+
+        <input type="number" id="salary" placeholder="Monthly Salary">
+        <input type="number" id="score" placeholder="Credit Score">
+        <input type="number" id="emi" placeholder="Existing EMI">
+        <input type="number" id="age" placeholder="Age">
+
+        <button onclick="checkEligibility()">Check Now</button>
+
+        <div id="result"></div>
+    </div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
